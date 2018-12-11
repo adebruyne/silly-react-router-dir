@@ -8,6 +8,12 @@ import {
   //Link                     // Changes the URL so the Router sees it
 } from "react-router-dom";
 
+import NavBar from "./NavBar";
+import Home from "./Home";
+import About from "./About";
+import Cats from "./Cats";
+import OneCat from "./OneCat";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -28,9 +34,27 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
-        <h1>Let's Practice Some Routing</h1>
-      </div>
+      <Router>
+        <div>
+          <NavBar />
+          <Route path="/" exact component={Home} />
+          <Route path="/about" component={About} />
+          <Route
+            path="/cats"
+            render={props => {
+              return (
+                <Cats catList={Object.keys(this.state.catToys)} {...props} />
+              );
+            }}
+          />
+          <Route
+            path="/cats/:catName"
+            render={props => {
+              return <OneCat toys={this.state.catToys} {...props} />;
+            }}
+          />
+        </div>
+      </Router>
     );
   }
 }
