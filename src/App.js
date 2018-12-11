@@ -31,10 +31,29 @@ class App extends Component {
         Whisper: ["string"],
         Neo: ["the couch"]
       },
-      dogToys: {
-        Skyler: ["tennis balls", "shoes"],
-        Leroy: ["mr squeaky", "shoes"],
-        Clefteye_Lopez: ["martinis", "cardboard"]
+      // dogToys: {
+      //   Skyler: ["tennis balls", "shoes"],
+      //   Leroy: ["mr squeaky", "shoes"],
+      //   Clefteye_Lopez: ["martinis", "cardboard"]
+      // }
+
+      dogs: {
+        Skyler: {
+          owner: "Evan",
+          toys: ["tennis balls", "shoes"]
+        },
+        Leroy: {
+          owner: "Ian",
+          toys: ["mr squeaky", "shoes"]
+        },
+        Ladybird: {
+          owner: "Hank",
+          toys: ["martinis", "self-loathing"]
+        },
+        Judge: {
+          owner: "Clare",
+          toys: []
+        }
       }
     };
   }
@@ -67,9 +86,7 @@ class App extends Component {
           <Route
             path="/dogs"
             render={props => {
-              return (
-                <Dogs dogList={Object.keys(this.state.dogToys)} {...props} />
-              );
+              return <Dogs dogList={Object.keys(this.state.dogs)} {...props} />;
             }}
           />
         </div>
