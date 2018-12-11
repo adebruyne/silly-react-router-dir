@@ -13,6 +13,7 @@ import Home from "./Home";
 import About from "./About";
 import Cats from "./Cats";
 import OneCat from "./OneCat";
+import Dogs from "./Dogs";
 
 class App extends Component {
   constructor(props) {
@@ -29,10 +30,19 @@ class App extends Component {
         Milla: ["drool"],
         Whisper: ["string"],
         Neo: ["the couch"]
+      },
+      dogToys: {
+        Skyler: ["tennis balls", "shoes"],
+        Leroy: ["mr squeaky", "shoes"],
+        Clefteye_Lopez: ["martinis", "cardboard"]
       }
     };
   }
   render() {
+    // const dogName = "Leroy";
+    // console.log(this.state.dogToys[dogName]);
+    // console.log(this.state.dogToys["Leroy"]);
+
     return (
       <Router>
         <div>
@@ -53,6 +63,7 @@ class App extends Component {
               return <OneCat toys={this.state.catToys} {...props} />;
             }}
           />
+          <Route path="/dogs" component={Dogs} />
         </div>
       </Router>
     );
