@@ -11,7 +11,7 @@ function OneDog(props) {
     <div>
       <h1>I amn {props.match.params.dogName}</h1>
       <h2>My owner is {oneDogsInfo.owner}</h2>
-      <h3>Here are my toys</h3>
+      <h3>Here are my toys:</h3>
       <ul>{dogToysListItem}</ul>
     </div>
   );
