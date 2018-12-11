@@ -90,7 +90,12 @@ class App extends Component {
               return <Dogs dogList={Object.keys(this.state.dogs)} {...props} />;
             }}
           />
-          <Route path="/dogs/:dogName" component={OneDog} />
+          <Route
+            path="/dogs/:dogName"
+            render={props => {
+              return <OneDog dogInfo={this.state.dogs} {...props} />;
+            }}
+          />
         </div>
       </Router>
     );
