@@ -14,6 +14,7 @@ import About from "./About";
 import Cats from "./Cats";
 import OneCat from "./OneCat";
 import Dogs from "./Dogs";
+import OneDog from "./OneDog";
 
 class App extends Component {
   constructor(props) {
@@ -89,6 +90,7 @@ class App extends Component {
               return <Dogs dogList={Object.keys(this.state.dogs)} {...props} />;
             }}
           />
+          <Route path="/dogs/:dogName" component={OneDog} />
         </div>
       </Router>
     );
